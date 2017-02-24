@@ -1,0 +1,8 @@
+*.pyc
+.idea
+
+logs
+
+# Data files
+data
+# input
