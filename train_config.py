@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Set parameters
 # HYPARMS.max_steps = 200
 # HYPARMS.learning_rate = 0.1

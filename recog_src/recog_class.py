@@ -6,6 +6,7 @@ class Hyparms():
         self.max_steps = 5000
         self.log_dir = 'logs'
         self.input_data_dir = 'data'
+        self.recog_data_dir = 'input'
         self.ckpt_dir = 'trained'
         self.ckpt_name = 'trained_weight'
         self.dropout_rate = 1
