@@ -1,5 +1,5 @@
 from recog_src.recog_class import Hyparms
-from recog_src.recog_runner import run_training
+from recog_src.recog_runner import run_recognize
 import tensorflow as tf
 
 def load_params():
@@ -12,7 +12,7 @@ def main(_):
     if tf.gfile.Exists(HYPARMS.log_dir):
         tf.gfile.DeleteRecursively(HYPARMS.log_dir)
     tf.gfile.MakeDirs(HYPARMS.log_dir)
-    run_training(HYPARMS)
+    run_recognize([],HYPARMS)
 
 if __name__ == '__main__':
   tf.app.run(main=main)

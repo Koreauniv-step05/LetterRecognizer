@@ -1,17 +1,13 @@
 
-def fill_feed_dict(data_set, images_pl, labels_pl, keep_prob, HYPARMS, evalflag=False):
-  images_feed, labels_feed = data_set.next_batch(HYPARMS.batch_size,
-                                                 HYPARMS.fake_data)
-  if evalflag:
-      dropout_rate = 1
-  else:
-      dropout_rate = HYPARMS.dropout_rate
-  feed_dict = {
-      images_pl: images_feed,
-      labels_pl: labels_feed,
-      keep_prob: dropout_rate,
-  }
-  return feed_dict
+def fill_feed_dict(input, images_pl, labels_pl, keep_prob, HYPARMS, evalflag=False):
+    images_feed = input
+    dropout_rate = 1
+    feed_dict = {
+        images_pl: images_feed,
+        labels_pl: 0,
+        keep_prob: dropout_rate,
+    }
+    return feed_dict
 
 def do_eval(sess,
             eval_correct,
