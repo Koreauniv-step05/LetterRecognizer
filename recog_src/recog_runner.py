@@ -12,12 +12,13 @@ def run_recognize(input, HYPARMS):
     logits = graph_model(placebundle)
     sftmax = tf.nn.softmax(logits)
     classified = tf.argmax(sftmax,1)
-
+    saver = tf.train.Saver()
     with tf.Session() as sess:
         init = tf.initialize_all_variables()
         sess.run(init)
-
-        start_time = time.time()
+        ckpt_path = os.path.join(HYPARMS.ckpt_dir, HYPARMS.ckpt_name)
+        saver.restore(sess, ckpt_path)
+        #start_time = time.time()
 
         feed_dict = fill_feed_dict(input,
                                    placebundle.x,
