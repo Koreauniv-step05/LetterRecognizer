@@ -7,6 +7,7 @@ class Hyparms():
         self.log_dir = 'logs'
         self.input_data_dir = 'data'
         self.ckpt_dir = 'trained'
+        self.ckpt_name = 'trained_weight'
         self.dropout_rate = 1
         self.fake_data = False
 
