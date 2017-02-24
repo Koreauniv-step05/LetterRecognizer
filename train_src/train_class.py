@@ -8,7 +8,7 @@ class Hyparms():
         self.input_data_dir = 'data'
         self.ckpt_dir = 'trained'
         self.ckpt_name = 'trained_weight'
-        self.dropout_rate = 1
+        self.dropout_rate = 0.9
         self.fake_data = False
 
 class Weight:
