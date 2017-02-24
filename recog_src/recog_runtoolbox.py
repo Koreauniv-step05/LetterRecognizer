@@ -4,7 +4,7 @@ def fill_feed_dict(input, images_pl, labels_pl, keep_prob, HYPARMS, evalflag=Fal
     dropout_rate = 1
     feed_dict = {
         images_pl: images_feed,
-        labels_pl: 0,
+        labels_pl: [0],
         keep_prob: dropout_rate,
     }
     return feed_dict
