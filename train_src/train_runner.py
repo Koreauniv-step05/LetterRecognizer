@@ -19,7 +19,7 @@ def run_training(HYPARMS):
         with tf.Session() as sess:
             init = tf.initialize_all_variables()
             sess.run(init)
-            saver = tf.train.Saver()
+            #saver = tf.train.Saver()
 
             for step in xrange(HYPARMS.max_steps):
                 start_time = time.time()
