@@ -5,9 +5,13 @@ from tensorflow.examples.tutorials.mnist import input_data
 
 from train_runtoolbox import fill_feed_dict, do_eval
 from train_model import placeholder_inputs, graph_model, calcul_loss, training, evaluation
+from DataConverter import inputdata
 
 def run_training(HYPARMS):
-    data_sets = input_data.read_data_sets(HYPARMS.input_data_dir, HYPARMS.fake_data)
+    data_sets = inputdata.read_data_sets(HYPARMS.input_data_dir)
+    train_set = data_sets.train
+    test_set = data_sets.test
+    #data_sets = input_data.read_data_sets(HYPARMS.input_data_dir, HYPARMS.fake_data)
 
     with tf.Graph().as_default():
         placebundle = placeholder_inputs(HYPARMS.batch_size)
@@ -24,7 +28,7 @@ def run_training(HYPARMS):
             for step in xrange(HYPARMS.max_steps):
                 start_time = time.time()
 
-                feed_dict = fill_feed_dict(data_sets.train,
+                feed_dict = fill_feed_dict(train_set,
                                            placebundle.x,
                                            placebundle.y_,
                                            placebundle.keep_prob,
@@ -58,16 +62,7 @@ def run_training(HYPARMS):
                             placebundle.x,
                             placebundle.y_,
                             placebundle.keep_prob,
-                            data_sets.train,
-                            HYPARMS)
-                    # Evaluate against the validation set.
-                    print('Validation Data Eval:')
-                    do_eval(sess,
-                            eval_correct,
-                            placebundle.x,
-                            placebundle.y_,
-                            placebundle.keep_prob,
-                            data_sets.validation,
+                            train_set,
                             HYPARMS)
                     # Evaluate against the test set.
                     print('Test Data Eval:')
@@ -76,5 +71,5 @@ def run_training(HYPARMS):
                             placebundle.x,
                             placebundle.y_,
                             placebundle.keep_prob,
-                            data_sets.test,
+                            test_set,
                             HYPARMS)
