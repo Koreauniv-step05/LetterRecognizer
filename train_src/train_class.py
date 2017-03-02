@@ -1,11 +1,11 @@
 
 class Hyparms():
     def __init__(self):
-        self.batch_size = 128
+        self.batch_size = 10
         self.learning_rate = 0.01
         self.max_steps = 5000
         self.log_dir = 'logs'
-        self.input_data_dir = 'data'
+        self.input_data_dir = 'data/number'
         self.ckpt_dir = 'trained'
         self.ckpt_name = 'trained_weight'
         self.dropout_rate = 0.9
